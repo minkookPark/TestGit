@@ -8,8 +8,6 @@ public class Book {
 		this.publicer = publicer;
 		this.price = price;
 		this.releaseData = releaseData;
-		this.discountRate = 0;
-		this.isDiscount = false;
 	}
 
 	private String title;
@@ -17,38 +15,36 @@ public class Book {
 	private int price;
 	private LocalDate releaseData;
 
-	private int discountRate;
-	private boolean isDiscount;
-
 	public String getTitle() {
 		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
 	public String getPublicer() {
 		return publicer;
 	}
 
+	public void setPublicer(String publicer) {
+		this.publicer = publicer;
+	}
+
 	public int getPrice() {
-		if (discountRate == 0)
-			return price;
-		else
-			return price * (100 - discountRate);
+		return price;
 	}
 
-	public void setDiscountRate(int discount) 
-	{
-		if(discount != 0)
-		{
-			discountRate = discount;
-			isDiscount = true;
-		}
-		else if (discount == 0)
-			isDiscount = false;
+	public void setPrice(int price) {
+		this.price = price;
 	}
 
-	public LocalDate getReleaseData() 
-	{
+	public LocalDate getReleaseData() {
 		return releaseData;
+	}
+	public void setReleaseDate(LocalDate data)
+	{
+		this.releaseData = data;				
 	}
 	
 	public void showBookInfomation()
